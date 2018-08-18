@@ -15,6 +15,8 @@ RUN echo "root=noreply@localhost.localdomain" >> /etc/ssmtp/ssmtp.conf
 RUN echo "mailhub=smtp" >> /etc/ssmtp/ssmtp.conf
 RUN echo "www-data:mailer" >> /etc/ssmtp/revaliases
 RUN echo "sendmail_path=sendmail -i -t" >> /usr/local/etc/php/conf.d/php-sendmail.ini
+RUN echo "upload_max_filesize = 20M" >> /usr/local/etc/php/conf.d/php-size.ini
+RUN echo "post_max_size = 20M" >> /usr/local/etc/php/conf.d/php-size.ini
 
 ADD start.sh /start.sh
 
